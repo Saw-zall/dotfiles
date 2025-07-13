@@ -37,7 +37,7 @@
         creates: ~/.oh-my-zsh
 
     - name: Install nvm
-      become: false
+      become: true
       shell: |
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
       args:
