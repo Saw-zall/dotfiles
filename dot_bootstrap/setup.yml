@@ -1,0 +1,60 @@
+---
+- name: Bootstrap Debian system with essential tools
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install packages
+      apt:
+        name:
+          - git
+          - curl
+          - wget
+          - vim
+          - btop
+          - build-essential
+          - python3-pip
+          - python3-venv
+          - bat
+          - ripgrep
+          - fzf
+          - neovim
+          - zsh
+          - thefuck
+          - zathura
+        state: present
+
+    - name: Install tealdeer (tldr client) via cargo
+      apt:
+        name: cargo
+        state: present
+
+    - name: Install tealdeer using cargo
+      become: false
+      pip:
+        name: tealdeer
+        executable: pip3
+      ignore_errors: yes
+
+    - name: Install tealdeer using cargo (if pip fails)
+      become: false
+      shell: cargo install tealdeer
+      args:
+        creates: ~/.cargo/bin/tldr
+
+    - name: Install oh-my-zsh
+      become: false
+      shell: |
+        RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh
+
+    - name: Install nvm
+      become: false
+      shell: |
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      args:
+        creates: ~/.nvm
