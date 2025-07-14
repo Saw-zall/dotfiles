@@ -46,7 +46,7 @@
     - name: Install Node.js using nvm
       become: false
       shell: |
-        source ~/.config/nvm/nvm.sh
+        . ~/.config/nvm/nvm.sh
         nvm install --lts
       args:
         creates: ~/.config/nvm/versions/node
