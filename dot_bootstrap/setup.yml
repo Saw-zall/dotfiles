@@ -55,10 +55,10 @@
       become: false
       git:
         repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+        dest: "~/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
     - name: Install zsh-syntax-highlighting
       become: false
       git:
         repo: "git clone https://github.com/zsh-users/zsh-syntax-highlighting.git"
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+        dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
