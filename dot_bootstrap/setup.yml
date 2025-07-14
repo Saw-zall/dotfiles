@@ -41,12 +41,12 @@
       shell: |
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
       args:
-        creates: ~/.nvm
+        creates: ~/.config/nvm
 
     - name: Install Node.js using nvm
       become: false
       shell: |
-        source ~/.nvm/nvm.sh
+        source ~/.config/nvm/nvm.sh
         nvm install --lts
       args:
-        creates: ~/.nvm/versions/node
+        creates: ~/.config/nvm/versions/node
