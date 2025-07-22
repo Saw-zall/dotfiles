@@ -54,3 +54,8 @@ set recolor-darkcolor           rgba(248,248,242,1)   # Foreground
 #
 set adjust-open width
 set recolor true
+
+#
+# Font
+#
+set font "monospace normal 12"
