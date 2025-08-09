@@ -13,6 +13,7 @@ alias output-fr="fabric -p translate_fr | batcat -l md"
 alias pt="yt --transcript --lang en $1"
 alias gitversion="dotnet-gitversion"
 alias runtipi="sudo service docker start ; cd ~/Installed_Apps/runtipi && sudo ./runtipi-cli start"
+alias vimdiff='nvim -d'
 function search-fabric-pattern() { fabric -l | grep $1 | column }
 function describe-fabric-pattern() { batcat "$HOME/.config/fabric/patterns/$1/system.md" -l md ; }
 # function describe-fabric-pattern() { cat "$HOME/.config/fabric/patterns/$1/system.md" | fabric -p summarize | batcat -l md ; }
