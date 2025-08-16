@@ -20,6 +20,7 @@
           - build-essential
           - python3-pip
           - python3-venv
+          - pipx
           - bat
           - ripgrep
           - fzf
@@ -34,9 +35,9 @@
     - name: Install oh-my-zsh
       become: false
       shell: |
-        RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        RUNZSH=no CHSH=no KEEP_ZSHRC=yes ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       args:
-        creates: ~/.oh-my-zsh
+        creates: ~/.oh-my-zsh/oh-my-zsh.sh
 
     - name: Install nvm
       become: false
@@ -45,13 +46,18 @@
       args:
         creates: ~/.nvm
 
-    - name: Install Node.js using nvm
-      become: false
-      shell: |
-        . ~/.nvm/nvm.sh
-        nvm install --lts
+    - name: Install commitizen
+      ansible.builtin.command: pipx install commitizen
       args:
-        creates: ~/.nvm/versions/node
+        creates: ~/.local/bin/cz
+
+#    - name: Install Node.js using nvm
+#      become: false
+#      shell: |
+#        . ~/.nvm/nvm.sh
+#        nvm install --lts
+#      args:
+#        creates: ~/.nvm/versions/node
     
     - name: Install zsh-autosuggestions
       become: false

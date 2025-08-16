@@ -1,0 +1,126 @@
+// Place your key bindings in this file to override the defaults
+[
+  //
+  // MOVEMENT
+  //
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.focusSideBar",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus"
+  },
+  // alt+jk for the bottom panel
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.focusPanel",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "!editorTextFocus"
+  },
+  //
+  // alt+jk in menus
+  //
+  {
+    "key": "alt+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "alt+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "alt+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "alt+k", // whatever you want here
+    "command": "selectPrevCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "up", // default removed
+    "command": "-selectPrevCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "alt+j", // whatever you want here
+    "command": "selectNextCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "down", // default removed
+    "command": "-selectNextCodeAction", // for v1.71
+    "when": "codeActionMenuVisible"
+  },
+  //
+  // alt+hl to switch between tabs
+  //
+  {
+    "key": "alt+h",
+    "command": "workbench.action.previousEditor",
+    // "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+l",
+    "command": "workbench.action.nextEditor",
+    // "when": "editorTextFocus"
+  },
+  //
+  // arrows to resize windows
+  //
+  {
+    "key": "up",
+    "command": "workbench.action.increaseViewHeight",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "down",
+    "command": "workbench.action.decreaseViewHeight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "left",
+    "command": "workbench.action.decreaseViewWidth",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "right",
+    "command": "workbench.action.increaseViewWidth",
+    "when": "editorTextFocus"
+  }
+]
