@@ -384,7 +384,7 @@
           "key": "a",
           "name": "Close all editors",
           "type": "command",
-          "command": "workbench.action.closeAllEditors"
+          "command": "workbench.action.closeEditorsInGroup"
         },
         {
           "key": "h",
