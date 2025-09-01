@@ -210,6 +210,40 @@
       "type": "bindings",
       "bindings": [
         {
+          "key": "g",
+          "name": "Go to",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "d",
+              "name": "Definition",
+              "type": "command",
+              "command": "editor.action.revealDefinition",
+              "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+            },
+            {
+              "key": "D",
+              "name": "Declaration",
+              "type": "command",
+              "command": "editor.action.revealDeclaration"
+            },
+            {
+              "key": "i",
+              "name": "Implementation",
+              "type": "command",
+              "command": "editor.action.goToImplementation",
+              "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+            },
+            {
+              "key": "r",
+              "name": "References",
+              "type": "command",
+              "command": "editor.action.goToReferences",
+              "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+            }
+          ]
+        },
+        {
           "key": ";",
           "name": "Refactor",
           "type": "command",
@@ -230,19 +264,6 @@
           "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)quickfix\\b/"
         },
         {
-          "key": "d",
-          "name": "Definition",
-          "type": "command",
-          "command": "editor.action.revealDefinition",
-          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-        },
-        {
-          "key": "D",
-          "name": "Declaration",
-          "type": "command",
-          "command": "editor.action.revealDeclaration"
-        },
-        {
           "key": "e",
           "name": "Errors",
           "type": "command",
@@ -255,13 +276,6 @@
         //   "command": "editor.action.formatDocument",
         //   "when": "editorHasDocumentFormattingProvider && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
         // },
-        {
-          "key": "i",
-          "name": "Implementation",
-          "type": "command",
-          "command": "editor.action.goToImplementation",
-          "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
-        },
         {
           "key": "l",
           "name": "Code Lens",

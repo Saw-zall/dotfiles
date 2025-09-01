@@ -2,5 +2,5 @@
 command = "bash"
 args = [
     "-c",
-    {{ printf "%q" "cp  {{ .Target }}.base && code --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" }},
+    {{ printf "%q" "cp {{ .Target }} {{ .Target }}.base && code --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" }},
 ]
