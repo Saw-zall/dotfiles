@@ -97,9 +97,6 @@
       "after": [
         "c-u"
       ]
-      // "commands": [
-      //   "cursorPageUp"
-      // ]
     },
     {
       "before": [
@@ -108,9 +105,6 @@
       "after": [
         "c-d"
       ]
-      // "commands": [
-      //   "cursorPageDown"
-      // ]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -134,6 +128,12 @@
   ],
   "whichkey.bindings": [
     {
+      "key": " ",
+      "name": "Repeat last which key",
+      "type": "command",
+      "command": "whichkey.repeatMostRecent"
+    },
+    {
       "key": "\t",
       "name": "Trigger copilot inline completion",
       "type": "command",
@@ -147,10 +147,52 @@
     },
     {
       "key": "/",
-      "name": "comment",
+      "name": "Comment",
+      "type": "command",
+      "command": "editor.action.commentLine",
+    },
+    {
+      "key": "w",
+      "name": "Save",
+      "type": "command",
+      "command": "workbench.action.files.save",
+    },
+    {
+      "key": "W",
+      "name": "Save All",
+      "type": "command",
+      "command": "workbench.action.files.saveAll"
+    },
+    {
+      "key": "q",
+      "name": "Quit",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+    },
+    {
+      "key": "m",
+      "name": "Toggle editor maximized",
+      "type": "command",
+      "command": "workbench.action.toggleEditorWidths"
+    },
+    {
+      "key": "n",
+      "name": "No Highlight",
       "type": "command",
       "command": "vscode-neovim.send",
-      "args": "<C-/>"
+      "args": ":noh<CR>"
+    },
+    {
+      "key": "e",
+      "name": "Toggle Sidebar",
+      "type": "command",
+      "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+      "key": "z",
+      "name": "Toggle zen mode",
+      "type": "command",
+      "command": "workbench.action.toggleZenMode"
     },
     {
       "key": "?",
@@ -159,32 +201,32 @@
       "command": "references-view.find",
       "when": "editorHasReferenceProvider"
     },
-    {
-      "key": "f",
-      "name": "Find & Replace...",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "f",
-          "name": "File",
-          "type": "command",
-          "command": "editor.action.startFindReplaceAction"
-        },
-        {
-          "key": "s",
-          "name": "Symbol",
-          "type": "command",
-          "command": "editor.action.rename",
-          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
-        },
-        {
-          "key": "p",
-          "name": "Project",
-          "type": "command",
-          "command": "workbench.action.replaceInFiles"
-        }
-      ]
-    },
+    // {
+    //   "key": "f",
+    //   "name": "Find & Replace...",
+    //   "type": "bindings",
+    //   "bindings": [
+    //     {
+    //       "key": "f",
+    //       "name": "File",
+    //       "type": "command",
+    //       "command": "editor.action.startFindReplaceAction"
+    //     },
+    //     {
+    //       "key": "s",
+    //       "name": "Symbol",
+    //       "type": "command",
+    //       "command": "editor.action.rename",
+    //       "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    //     },
+    //     {
+    //       "key": "p",
+    //       "name": "Project",
+    //       "type": "command",
+    //       "command": "workbench.action.replaceInFiles"
+    //     }
+    //   ]
+    // },
     {
       "key": "s",
       "name": "Search...",
@@ -200,8 +242,14 @@
           "key": "t",
           "name": "Text",
           "type": "command",
-          "command": "workbench.action.findInFiles"
-        }
+          "command": "workbench.action.quickTextSearch"
+        },
+        {
+          "key": "g",
+          "name": "Git",
+          "type": "command",
+          "command": "gitlens.showCommitSearch"
+        },
       ]
     },
     {
@@ -222,10 +270,24 @@
               "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
             },
             {
+              "key": "r",
+              "name": "References",
+              "type": "command",
+              "command": "editor.action.goToReferences",
+              "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+            },
+            {
               "key": "D",
               "name": "Declaration",
               "type": "command",
               "command": "editor.action.revealDeclaration"
+            },
+            {
+              "key": "t",
+              "name": "Type Definition",
+              "type": "command",
+              "command": "editor.action.goToTypeDefinition",
+              "when": "editorHasTypeDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
             },
             {
               "key": "i",
@@ -234,13 +296,6 @@
               "command": "editor.action.goToImplementation",
               "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
             },
-            {
-              "key": "r",
-              "name": "References",
-              "type": "command",
-              "command": "editor.action.goToReferences",
-              "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
-            }
           ]
         },
         {
@@ -250,12 +305,6 @@
           "command": "editor.action.refactor",
           "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
         },
-        // {
-        //   "key": "a",
-        //   "name": "Auto Fix",
-        //   "type": "command",
-        //   "command": "eslint.executeAutofix",
-        // },
         {
           "key": "a",
           "name": "Auto Fix",
@@ -283,17 +332,31 @@
           "command": "codelens.showLensesInCurrentLine"
         },
         {
-          "key": "n",
-          "name": "Next Problem",
+          "key": "j",
+          "name": "Next Diagnostic in file",
           "type": "command",
           "command": "editor.action.marker.next",
           "when": "editorFocus"
         },
         {
-          "key": "N",
-          "name": "Next Problem (Proj)",
+          "key": "k",
+          "name": "Prev Diagnostic in file",
+          "type": "command",
+          "command": "editor.action.marker.prev",
+          "when": "editorFocus"
+        },
+        {
+          "key": "J",
+          "name": "Next Diagnostic",
           "type": "command",
           "command": "editor.action.marker.nextInFiles",
+          "when": "editorFocus"
+        },
+        {
+          "key": "K",
+          "name": "Prev Diagnostic",
+          "type": "command",
+          "command": "editor.action.marker.prevInFiles",
           "when": "editorFocus"
         },
         {
@@ -356,6 +419,12 @@
           "type": "command",
           "command": "workbench.action.showAllSymbols"
         },
+        {
+          "key": "h",
+          "name": "Hover",
+          "type": "command",
+          "command": "editor.action.showHover",
+        },
         // fold
         {
           "key": "f",
@@ -374,6 +443,47 @@
           "name": "Unfold All",
           "type": "command",
           "command": "editor.unfoldAll",
+        },
+        {
+          "key": "d",
+          "name": "Document this",
+          "type": "command",
+          "command": "docthis.documentThis"
+        }
+      ]
+    },
+    {
+      "key": "p",
+      "name": "Peek",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "d",
+          "name": "Definition",
+          "type": "command",
+          "command": "editor.action.peekDefinition",
+          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        {
+          "key": "r",
+          "name": "References",
+          "type": "command",
+          "command": "editor.action.peekReferences",
+          "when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
+        },
+        {
+          "key": "i",
+          "name": "Implementation",
+          "type": "command",
+          "command": "editor.action.peekImplementation",
+          "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+        },
+        {
+          "key": "t",
+          "name": "Type Definition",
+          "type": "command",
+          "command": "editor.action.peekTypeDefinition",
+          "when": "editorHasTypeDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
         }
       ]
     },
@@ -387,6 +497,18 @@
           "name": "Show all buffers/editors",
           "type": "command",
           "command": "workbench.action.showAllEditors"
+        },
+        {
+          "key": "n",
+          "name": "Next editor",
+          "type": "command",
+          "command": "workbench.action.nextEditor"
+        },
+        {
+          "key": "p",
+          "name": "Previous editor",
+          "type": "command",
+          "command": "workbench.action.previousEditor"
         },
         {
           "key": "q",
@@ -429,18 +551,6 @@
           "name": "Close other editors",
           "type": "command",
           "command": "workbench.action.closeOtherEditors"
-        },
-        {
-          "key": "n",
-          "name": "Next editor",
-          "type": "command",
-          "command": "workbench.action.nextEditor"
-        },
-        {
-          "key": "p",
-          "name": "Previous editor",
-          "type": "command",
-          "command": "workbench.action.previousEditor"
         },
         {
           "key": "N",
@@ -512,7 +622,7 @@
         },
         {
           "key": "r",
-          "name": "Restart ebug",
+          "name": "Restart debug",
           "type": "command",
           "command": "workbench.action.debug.restart"
         },
@@ -524,9 +634,28 @@
         },
         {
           "key": "s",
-          "name": "Step over",
-          "type": "command",
-          "command": "workbench.action.debug.stepOver"
+          "name": "Step...",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "i",
+              "name": "Step into",
+              "type": "command",
+              "command": "workbench.action.debug.stepInto"
+            },
+            {
+              "key": "o",
+              "name": "Step out",
+              "type": "command",
+              "command": "workbench.action.debug.stepOut"
+            },
+            {
+              "key": "s",
+              "name": "Step over",
+              "type": "command",
+              "command": "workbench.action.debug.stepOver"
+            }
+          ]
         },
         {
           "key": "o",
@@ -547,7 +676,31 @@
           "command": "editor.debug.action.toggleInlineBreakpoint"
         },
         {
+          "key": "t",
+          "name": "",
+          "type": "command",
+          "command": "editor.debug.action.toggleInlineBreakpoint"
+        },
+        {
           "key": "j",
+          "name": "Go to next breakpoint",
+          "type": "commands",
+          "commands": [
+            "workbench.action.debug.gotoNextBreakpoint",
+            "workbench.action.focusActiveEditorGroup"
+          ]
+        },
+        {
+          "key": "k",
+          "name": "Go to previous breakpoint",
+          "type": "commands",
+          "commands": [
+            "workbench.action.debug.gotoPreviousBreakpoint",
+            "workbench.action.focusActiveEditorGroup"
+          ]
+        },
+        {
+          "key": "C",
           "name": "Jump to cursor",
           "type": "command",
           "command": "debug.jumpToCursor"
@@ -595,6 +748,12 @@
           "name": "Blame",
           "type": "command",
           "command": "gitlens.toggleFileBlame"
+        },
+        {
+          "key": "p",
+          "name": "Prior Blame",
+          "type": "command",
+          "command": "gitlens.openBlamePriorToChange"
         },
         {
           "key": "g",
@@ -669,6 +828,12 @@
           "name": "Show search",
           "type": "command",
           "command": "workbench.view.search"
+        },
+        {
+          "key": "f",
+          "name": "Fullscreen",
+          "type": "command",
+          "command": "workbench.action.toggleFullScreen"
         },
         {
           "key": "g",
@@ -771,6 +936,50 @@
       ]
     },
     {
+      "key": "j",
+      "name": "Jest/Testing...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "t",
+          "name": "Test",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "a",
+              "name": "Run all tests",
+              "type": "command",
+              "command": "testing.runAll"
+            },
+            {
+              "key": "r",
+              "name": "Rerun failed tests",
+              "type": "command",
+              "command": "testing.rerunFailedTests"
+            },
+            {
+              "key": "f",
+              "name": "Run tests in current file",
+              "type": "command",
+              "command": "testing.runCurrentFile"
+            },
+            {
+              "key": "n",
+              "name": "Run nearest test",
+              "type": "command",
+              "command": "testing.runNearest"
+            },
+            {
+              "key": "o",
+              "name": "Open Test File",
+              "type": "command",
+              "command": "testing.openTestToSide"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "key": "W",
       "name": "Window toggles...",
       "type": "bindings",
@@ -797,49 +1006,42 @@
         },
       ]
     },
-    // save
     {
-      "key": "w",
-      "name": "Save",
-      "type": "command",
-      "command": "workbench.action.files.save",
-    },
-    {
-      "key": "W",
-      "name": "Save All",
-      "type": "command",
-      "command": "workbench.action.files.saveAll"
-    },
-    {
-      "key": "q",
-      "name": "Quit",
-      "type": "command",
-      "command": "workbench.action.closeActiveEditor"
-    },
-    {
-      "key": "m",
-      "name": "Toggle editor maximized",
-      "type": "command",
-      "command": "workbench.action.toggleEditorWidths"
-    },
-    {
-      "key": "n",
-      "name": "No Highlight",
-      "type": "command",
-      "command": "vscode-neovim.send",
-      "args": ":noh<CR>"
-    },
-    {
-      "key": "e",
-      "name": "Toggle Explorer",
-      "type": "command",
-      "command": "workbench.action.toggleSidebarVisibility"
-    },
-    {
-      "key": "z",
-      "name": "Toggle zen mode",
-      "type": "command",
-      "command": "workbench.action.toggleZenMode"
+      "key": "c",
+      "name": "Compare editor",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "s",
+          "name": "Swap sides",
+          "type": "command",
+          "command": "workbench.action.compareEditor.swapSides"
+        },
+        {
+          "key": "j",
+          "name": "Next change",
+          "type": "command",
+          "command": "workbench.action.compareEditor.nextChange"
+        },
+        {
+          "key": "k",
+          "name": "Previous change",
+          "type": "command",
+          "command": "workbench.action.compareEditor.previousChange"
+        },
+        {
+          "key": "r",
+          "name": "Revert change",
+          "type": "command",
+          "command": "diffEditor.revert"
+        },
+        {
+          "key": "c",
+          "name": "Close compare editor",
+          "type": "command",
+          "command": "workbench.action.closeActiveEditor"
+        },
+      ]
     }
   ],
   //
