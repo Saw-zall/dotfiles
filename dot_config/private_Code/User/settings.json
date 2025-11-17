@@ -850,7 +850,8 @@
     "*": true,
     "plaintext": false,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
+    "javascript": false
   },
   "git.autofetch": true,
   "gitlens.hovers.currentLine.over": "line",
