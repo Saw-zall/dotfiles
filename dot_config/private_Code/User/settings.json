@@ -253,6 +253,19 @@
       ]
     },
     {
+      "key": "p",
+      "name": "PlatformIO",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "b",
+          "name": "build",
+          "type": "command",
+          "command": "platformio-ide.build"
+        }
+      ]
+    },
+    {
       "key": "l",
       "name": "LSP...",
       "type": "bindings",
@@ -1386,5 +1399,6 @@
   "vim.statusBarColorControl": true,
   "vim.cursorStylePerMode.insert": "underline",
   "vim.smartRelativeLine": true,
-  "whichkey.useFullWidthCharacters": true
+  "whichkey.useFullWidthCharacters": true,
+  "explorer.confirmDelete": false
 }

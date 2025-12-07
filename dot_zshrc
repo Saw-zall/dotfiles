@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/Applications:$HOME/.cargo/bin:$HOME/.local/bin:~/.dotnet/tools:/snap/bin:$HOME/.platformio/penv/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/Applications:$HOME/.cargo/bin:$HOME/.local/bin:~/.dotnet/tools:/snap/bin:$HOME/.platformio/penv/bin:/home/linuxbrew/.linuxbrew/bin:/home/sigill/.platformio/penv/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
