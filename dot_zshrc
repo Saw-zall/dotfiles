@@ -127,8 +127,8 @@ fi
 #eval $(thefuck --alias)
 
 # Exports
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-EDITOR=vim
-VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
