@@ -1400,5 +1400,7 @@
   "vim.cursorStylePerMode.insert": "underline",
   "vim.smartRelativeLine": true,
   "whichkey.useFullWidthCharacters": true,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:claude-sonnet-4.6"
 }
