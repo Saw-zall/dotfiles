@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=/usr/lib/firefox/firefox --new-window="https://www.deezer.com"
+Terminal=false
+Icon=/usr/share/icons/Qogir-Ubuntu/scalable/apps/deezer.svg
+Name=Deezer
