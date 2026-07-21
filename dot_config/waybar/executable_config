@@ -140,6 +140,7 @@
             },
             "modules": [
                 "custom/expand",
+                "custom/kokorodoki",
                 "custom/tts-back",
                 "custom/tts-play",
                 "custom/tts-pause",
@@ -204,6 +205,15 @@
             "format": " 󰒭 ",
             "tooltip-format": "Next phrase",
             "on-click": "doki --next"
+        },
+
+        "custom/kokorodoki": {
+            "exec": "~/.config/waybar/scripts/kokorodoki-toggle.sh",
+            "return-type": "json",
+            "interval": 2,
+            "on-click": "~/.config/waybar/scripts/kokorodoki-toggle.sh toggle",
+            "on-click-right": "systemctl --user restart kokorodoki.service",
+            "tooltip": true
         },
 } 
 

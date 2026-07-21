@@ -165,3 +165,24 @@ tooltip {
     padding: 0px 5px;
     transition: all .3s ease; 
 }
+
+#custom-kokorodoki {
+    padding: 0 8px;
+    transition: color 0.2s ease;
+}
+
+#custom-kokorodoki.active {
+    color: #a6e3a1;
+}
+
+#custom-kokorodoki.inactive {
+    color: #6c7086;
+}
+
+#custom-kokorodoki.activating {
+    color: #f9e2af;
+}
+
+#custom-kokorodoki.failed {
+    color: #f38ba8;
+}
