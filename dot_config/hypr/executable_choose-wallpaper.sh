@@ -10,6 +10,8 @@ main() {
     selected_wallpaper=$(echo "$choice" | sed 's/^img://')
     awww img "$selected_wallpaper" --transition-type any --transition-fps 60 --transition-duration .5
     wal -i "$selected_wallpaper" -n --cols16
+    bash ~/.config/hypr/pywal-to-hyprlua.sh
+    hyprctl reload
     pkill swayosd-server
     swayosd-server &
     swaync-client --reload-css

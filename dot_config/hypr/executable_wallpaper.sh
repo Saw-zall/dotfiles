@@ -31,6 +31,8 @@ main() {
     # /tmp/wal-combined.png
 
     wal -i /tmp/wal-combined.jpg -n --cols16
+    bash ~/.config/hypr/pywal-to-hyprlua.sh
+    hyprctl reload
 
     awww img "$IMG1" --outputs HDMI-A-1
     awww img "$IMG2" --outputs DP-1

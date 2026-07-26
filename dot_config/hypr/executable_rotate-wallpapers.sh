@@ -92,6 +92,8 @@ montage "${imgs[0]}" "${imgs[1]}" "${imgs[2]}" \
   "$tmp"
 
 wal -i "$tmp" -q -n
+bash ~/.config/hypr/pywal-to-hyprlua.sh
+hyprctl reload
 
 awww img "${imgs[0]}" --outputs "$OUT1"
 awww img "${imgs[1]}" --outputs "$OUT2"
