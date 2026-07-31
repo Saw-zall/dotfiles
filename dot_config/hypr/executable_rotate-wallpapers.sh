@@ -91,6 +91,13 @@ montage "${imgs[0]}" "${imgs[1]}" "${imgs[2]}" \
   -tile 3x1 \
   "$tmp"
 
+# Replace pink
+# -fuzz 18% -fill "#7b3fbf" -opaque "#ff69b4" \
+# -fuzz 18% -fill black -opaque "#ff69b4" \
+magick "$tmp" \
+  -fuzz 18% -fill black -opaque "#ff69b4" \
+  "$tmp"
+
 wal -i "$tmp" -q -n
 bash ~/.config/hypr/pywal-to-hyprlua.sh
 hyprctl reload

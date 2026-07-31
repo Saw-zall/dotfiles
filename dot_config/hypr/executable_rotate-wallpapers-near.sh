@@ -80,7 +80,11 @@ pick=$(
 
 mapfile -t imgs <<<"$pick"
 
+# Replace pink
+# -fuzz 18% -fill "#7b3fbf" -opaque "#ff69b4" \
+# -fuzz 18% -fill black -opaque "#ff69b4" \
 magick "${imgs[0]}" "${imgs[1]}" "${imgs[2]}" \
+  -fuzz 18% -fill black -opaque "#ff69b4" \
   -resize 64x64\! \
   +append \
   "$tmp"
