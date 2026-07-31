@@ -189,7 +189,14 @@ hl.animation({ leaf = "windows", enabled = true, speed = 3.0, bezier = "fluid", 
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 3.0, bezier = "snappy" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3.0, bezier = "snappy" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 3.0, bezier = "snappy", type = "slide" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 3.0, bezier = "fluid", type = "slidefadevert", offset = "-35%" })
+hl.animation({
+	leaf = "specialWorkspace",
+	enabled = true,
+	speed = 3.0,
+	bezier = "fluid",
+	type = "slidefadevert",
+	offset = "-35%",
+})
 hl.animation({ leaf = "layers", enabled = true, speed = 3.0, bezier = "snappy", type = "popin", offset = "70%" })
 
 ---------------
@@ -300,8 +307,8 @@ hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- # Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "r+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "r-1" }))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "r-1" }))
+hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "r+1" }))
 
 -- # Move into monitor workspaces
 hl.bind(mainMod .. " + equal", hl.dsp.focus({ workspace = "r+1" }))
@@ -311,8 +318,8 @@ hl.bind(mainMod .. " + minus", hl.dsp.focus({ workspace = "r-1" }))
 hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.move({ workspace = "r+1" }))
 hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.window.move({ workspace = "r-1" }))
 
-hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.window.move({ workspace = "m+1" }))
-hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.window.move({ workspace = "m-1" }))
+hl.bind(mainMod .. " + SHIFT + mouse_down", hl.dsp.window.move({ workspace = "r-1" }))
+hl.bind(mainMod .. " + SHIFT + mouse_up", hl.dsp.window.move({ workspace = "r+1" }))
 
 -- -- # Screen taking
 hl.bind(mainMod .. " + SHIFT + s", hl.dsp.exec_cmd("hyprshot -m region"))
@@ -325,14 +332,26 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
@@ -390,4 +409,43 @@ hl.window_rule({
 
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+-- Blur waybar
+hl.layer_rule({
+	name = "blur-waybar",
+	match = { namespace = "waybar" },
+	blur = true,
+	ignore_alpha = 0.8,
+})
+
+-- Blur swaync
+hl.layer_rule({
+	name = "blur-swaync-control-center",
+	match = { namespace = "swaync-control-center" },
+	blur = true,
+	ignore_alpha = 0.35,
+})
+
+-- Blur swaync notifications
+hl.layer_rule({
+	name = "blur-swaync-notification-window",
+	match = { namespace = "swaync-notification-window" },
+	blur = true,
+	ignore_alpha = 0.35,
+})
+
+-- This is a layer rule that disables animations for the selection layer. This is useful if you want to have a static selection layer without any animations.
+-- hl.layer_rule({
+-- 	name = "no-anim-selection",
+-- 	match = { namespace = "selection" },
+-- 	no_anim = true,
+-- })
+
+-- Blur swayosd
+hl.layer_rule({
+	name = "blur-swayosd",
+	match = { namespace = "swayosd" },
+	blur = true,
+	ignore_alpha = 0.5,
 })
