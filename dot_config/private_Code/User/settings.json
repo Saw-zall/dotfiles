@@ -1402,5 +1402,6 @@
   "whichkey.useFullWidthCharacters": true,
   "explorer.confirmDelete": false,
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:claude-sonnet-4.6"
+  "gitlens.ai.vscode.model": "copilot:claude-sonnet-4.6",
+  "chat.viewSessions.orientation": "stacked"
 }
