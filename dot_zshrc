@@ -128,13 +128,20 @@ if [ -d "$HOME/.nvm" ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+if [ -d "/usr/share/nvm" ]; then
+  . /usr/share/nvm/init-nvm.sh
+fi
+
 # Evals
 #eval "$(navi widget zsh)"
 #eval $(thefuck --alias)
 
 # Exports
+export PAGER="bat --paging=always"
+export GIT_PAGER="bat --paging=always"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
+
 
 export EDITOR=nvim
 export VISUAL=nvim

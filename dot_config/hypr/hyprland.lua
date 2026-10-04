@@ -218,7 +218,14 @@ hl.config({
 		touchpad = {
 			natural_scroll = true,
 		},
+
+		-- Scroll on middle click - requires movement
+		-- scroll_method = "on_button_down",
+		-- scroll_button = 274,
 	},
+	-- cursor = {
+	--   no_warps = true,
+	-- },
 })
 
 hl.gesture({
@@ -409,6 +416,18 @@ hl.window_rule({
 
 	move = "20 monitor_h-120",
 	float = true,
+})
+
+-- No focus stealing for steam browser
+hl.window_rule({
+	name = "steam-browser-no-initial-focus",
+	match = {
+		class = "^steam$",
+		title = "^Steam - Browser$",
+		xwayland = true,
+	},
+	no_initial_focus = true,
+	focus_on_activate = false,
 })
 
 -- Blur waybar

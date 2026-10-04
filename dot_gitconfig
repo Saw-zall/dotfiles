@@ -3,3 +3,4 @@
 	name = Sawzall
 [core]
 	editor = nvim
+	pager = bat --paging=always
